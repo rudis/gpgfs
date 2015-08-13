@@ -56,7 +56,7 @@ class GpgStore(object):
             log.error("decryption failed, %s: %s", res.status, path)
             raise OSError(errno.EIO)
         log.debug('decrypted %s' % path)
-        return data
+        return res.data
 
     def delete(self, path):
         os.remove(self.encroot + '/' + path)
